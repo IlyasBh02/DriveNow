@@ -1,3 +1,8 @@
+<?php 
+require "connection.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,31 +59,30 @@
                         <thead>
                             <tr>
                                 <th class="px-2 md:px-6 py-3">#</th>
-                                <th class="px-2 md:px-6 py-3">Titre</th>
-                                <th class="px-2 md:px-6 py-3">Description</th>
-                                <th class="px-2 md:px-6 py-3">Prix</th>
+                                <th class="px-2 md:px-6 py-3">userID</th>
+                                <th class="px-2 md:px-6 py-3">vehiculeId</th>
                                 <th class="px-2 md:px-6 py-3">Date début</th>
                                 <th class="px-2 md:px-6 py-3">Date fin</th>
-                                <th class="px-2 md:px-6 py-3">Type</th>
+                                <th class="px-2 md:px-6 py-3">lieuId</th>
                                 <!-- <th class="px-2 md:px-6 py-3">Places disponibles</th> -->
-                                <th class="px-2 md:px-6 py-3">resion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php if (!empty($reservation)): ?>
                                 <?php foreach ($reservation as $res): ?>
                                     <tr class="border-b">
-                                        <td class="px-2 md:px-6 py-3"><?php echo $res['idreservation']; ?></td>
-                                        <td class="px-2 md:px-6 py-3"><?php echo $res['titre']; ?></td>
-                                        <td class="px-2 md:px-6 py-3"><?php echo $res['description']; ?></td>
-                                        <td class="px-2 md:px-6 py-3"><?php echo $res['prix']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['id']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['userId']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['vehiculeId']; ?></td>
                                         <td class="px-2 md:px-6 py-3"><?php echo $res['date_debut']; ?></td>
                                         <td class="px-2 md:px-6 py-3"><?php echo $res['date_fin']; ?></td>
-                                        <td class="px-2 md:px-6 py-3"><?php echo $res['type']; ?></td>
-                                        <td class="px-2 md:px-6 py-3"><?php echo $res['places_disponibles']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['lieuId']; ?></td>
                                         <td class="px-2 md:px-6 py-3 flex space-x-2">
-                                            <a class="bg-blue-400 text-white p-3 rounded-lg" href="./FormUpdatereservation.php?reservation_id=<?php echo $res['idreservation']; ?>">Modifier</a>
-                                            <a class="bg-red-400 text-white p-3 rounded-lg" href="./deletereservation.php?reservation_id=<?php echo $res['idreservation']; ?>">Supprimer</a>
+                                            <a class="bg-blue-400 text-white p-3 rounded-lg" href="">Modifier</a>
+                                            <a class="bg-red-400 text-white p-3 rounded-lg" href="">Supprimer</a>
+                                            
+                                            <!-- <a class="bg-blue-400 text-white p-3 rounded-lg" href="./FormUpdatereservation.php?reservation_id=<?php echo $res['idreservation']; ?>">Modifier</a>
+                                            <a class="bg-red-400 text-white p-3 rounded-lg" href="./deletereservation.php?reservation_id=<?php echo $res['idreservation']; ?>">Supprimer</a> -->
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -88,7 +92,6 @@
                                 </tr>
                             <?php endif; ?>
                         </tbody>
-
                     </table>
                 </div>
             </section>

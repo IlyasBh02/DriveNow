@@ -11,4 +11,11 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
+try {
+    $sql = "SELECT * FROM reservation";
+    $stmt = $pdo->query($sql);
+    $reservation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Erreur lors de la récupération des réservations : " . $e->getMessage());
+}
 ?>

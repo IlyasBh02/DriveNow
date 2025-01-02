@@ -19,3 +19,4 @@ try {
     die("Erreur lors de la récupération des réservations : " . $e->getMessage());
 }
 ?>
+

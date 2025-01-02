@@ -154,8 +154,8 @@ $display = new Display();
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#vehicles">Véhicules</a>
                     <a href="#contact">Contact</a>
-                    <a href="./Client/HistoryReservation.php">Mes Réservations</a>
-                    <a href="./logout.php">Déconnexion</a>
+                    <!-- <a href="./Client/HistoryReservation.php">Mes Réservations</a> -->
+                    <a href="Logout.php">Déconnexion</a>
                 </div>
                 <form method="POST" action="" class="hidden md:flex">
                     <input

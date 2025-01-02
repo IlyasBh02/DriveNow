@@ -46,8 +46,8 @@
             </aside>
             <section class="w-screen md:w-[calc(100%-224px)]">
                 <div class="bg-gradient-to-r from-[#2f88da] to-[#07075a] px-5 py-3 flex justify-between w-full rounded-bl-lg rounded-br-lg">
-                    <h1 class="text-white font-bold">Table des Activités</h1>
-                    <a class="bg-green-400 text-white px-2 py-1 rounded-md" href="./FormAddActivite.php">Ajouter une activité</a>
+                    <h1 class="text-white font-bold">Table des reservation</h1>
+                    <a class="bg-green-400 text-white px-2 py-1 rounded-md" href="./FormAddreservation.php">Ajouter une voiture</a>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left table-auto">
@@ -60,28 +60,35 @@
                                 <th class="px-2 md:px-6 py-3">Date début</th>
                                 <th class="px-2 md:px-6 py-3">Date fin</th>
                                 <th class="px-2 md:px-6 py-3">Type</th>
-                                <th class="px-2 md:px-6 py-3">Places disponibles</th>
-                                <th class="px-2 md:px-6 py-3">Action</th>
+                                <!-- <th class="px-2 md:px-6 py-3">Places disponibles</th> -->
+                                <th class="px-2 md:px-6 py-3">resion</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($activitFn as $act): ?>
-                            <tr class="border-b">
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['idActivite']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['titre']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['description']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['prix']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['date_debut']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['date_fin']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['type']; ?></td>
-                                <td class="px-2 md:px-6 py-3"><?php echo $act['places_disponibles']; ?></td>
-                                <td class="px-2 md:px-6 py-3 flex space-x-2">
-                                <a class="bg-blue-400 text-white p-3 rounded-lg" href="./FormUpdateActivite.php?activite_id=<?php echo $act['idActivite']; ?>">Modifier</a>
-                                <a class="bg-red-400 text-white p-3 rounded-lg" href="./deleteActivite.php?activite_id=<?php echo $act['idActivite']; ?>">Supprimer</a>
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
+                            <?php if (!empty($reservation)): ?>
+                                <?php foreach ($reservation as $res): ?>
+                                    <tr class="border-b">
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['idreservation']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['titre']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['description']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['prix']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['date_debut']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['date_fin']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['type']; ?></td>
+                                        <td class="px-2 md:px-6 py-3"><?php echo $res['places_disponibles']; ?></td>
+                                        <td class="px-2 md:px-6 py-3 flex space-x-2">
+                                            <a class="bg-blue-400 text-white p-3 rounded-lg" href="./FormUpdatereservation.php?reservation_id=<?php echo $res['idreservation']; ?>">Modifier</a>
+                                            <a class="bg-red-400 text-white p-3 rounded-lg" href="./deletereservation.php?reservation_id=<?php echo $res['idreservation']; ?>">Supprimer</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="9" class="text-center py-3">Aucune réservation trouvée.</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
+
                     </table>
                 </div>
             </section>

@@ -1,6 +1,6 @@
 <?php
 
-require "./autentification.php";
+require "Auth.php";
 
 if(isset($_POST['submit'])){
     $nom = $_POST['nom'];
